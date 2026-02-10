@@ -1,0 +1,39 @@
+"use client"
+
+import { Github, Linkedin, Mail } from "lucide-react"
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border px-6 py-8">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
+        <div className="flex items-center gap-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 border border-primary/20">
+            <span className="font-mono text-xs font-bold text-primary">{"</"}</span>
+          </div>
+          <span className="font-mono text-xs text-muted-foreground">
+            {"© 2026 — Tous droits réservés"}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          {[
+            { icon: Github, href: "https://github.com", label: "GitHub" },
+            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+          ].map(({ icon: Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-all duration-300 hover:text-primary"
+            >
+              <Icon size={16} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  )
+}
