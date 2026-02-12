@@ -110,7 +110,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative w-full overflow-hidden rounded-xl border border-border bg-card text-left transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_hsl(168_80%_58%/0.06)]"
+      className="group relative w-full overflow-hidden rounded-xl border border-border bg-card text-left transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_hsl(var(--primary)/0.06)]"
     >
       {/* Image preview */}
       <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -246,7 +246,7 @@ function ProjectModal({
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_20px_hsl(168_80%_58%/0.3)]"
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
               >
                 <ExternalLink size={16} />
                 Voir le projet
@@ -292,7 +292,7 @@ export function ProjectsSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_hsl(168_80%_58%/0.2)]"
+                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_hsl(var(--primary)/0.2)]"
                     : "border border-border bg-secondary text-muted-foreground hover:text-foreground hover:border-primary/30"
                 }`}
               >

@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, FolderOpen, Zap, Mail } from "lucide-react"
+import { Home, FolderOpen, Zap, Mail, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 
 const navLinks = [
   { href: "#accueil", label: "Accueil", icon: Home },
@@ -14,6 +15,10 @@ const navLinks = [
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("#accueil")
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
 
   /* Track active section on scroll */
   const updateActive = useCallback(() => {
@@ -35,6 +40,8 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", updateActive)
   }, [updateActive])
 
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
+
   return (
     <>
       {/* ─── Desktop: vertical sidebar ─── */}
@@ -45,18 +52,18 @@ export function Navbar() {
         className="fixed left-5 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-1 md:flex"
       >
         {/* Glass pill container */}
-        <div className="flex flex-col items-center gap-1 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col items-center gap-1 rounded-2xl border border-border/50 bg-background/60 p-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
           {/* Logo */}
           <a
             href="#accueil"
-            className="group mb-1 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 hover:shadow-[0_0_16px_hsl(168_80%_58%/0.15)]"
+            className="group mb-1 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40"
           >
             <span className="font-mono text-xs font-bold text-primary transition-transform duration-300 group-hover:scale-110">
               {"</"}
             </span>
           </a>
 
-          <div className="my-1 h-px w-6 bg-white/[0.06]" />
+          <div className="my-1 h-px w-6 bg-border/50" />
 
           {/* Nav items */}
           {navLinks.map((link, i) => {
@@ -70,11 +77,10 @@ export function Navbar() {
                   onMouseLeave={() => setHoveredIndex(null)}
                   className={`relative flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300 ${
                     isActive
-                      ? "bg-primary/15 text-primary shadow-[0_0_20px_hsl(168_80%_58%/0.1)]"
-                      : "text-muted-foreground hover:bg-white/[0.05] hover:text-foreground"
+                      ? "bg-primary/15 text-primary"
+                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                   }`}
                 >
-                  {/* Active indicator dot */}
                   {isActive && (
                     <motion.div
                       layoutId="sidebar-active"
@@ -93,17 +99,27 @@ export function Navbar() {
                       animate={{ opacity: 1, x: 0, scale: 1 }}
                       exit={{ opacity: 0, x: -6, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
-                      className="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-white/[0.06] bg-background/95 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur-xl shadow-lg"
+                      className="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur-xl shadow-lg"
                     >
                       {link.label}
-                      {/* Arrow */}
-                      <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 rotate-45 h-2 w-2 border-l border-b border-white/[0.06] bg-background/95" />
+                      <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 rotate-45 h-2 w-2 border-l border-b border-border/50 bg-background/95" />
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
             )
           })}
+
+          <div className="my-1 h-px w-6 bg-border/50" />
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+            aria-label="Changer de thème"
+          >
+            {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+          </button>
         </div>
       </motion.nav>
 
@@ -114,7 +130,7 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
       >
-        <div className="flex items-center justify-around rounded-2xl border border-white/[0.06] bg-background/80 px-2 py-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        <div className="flex items-center justify-around rounded-2xl border border-border/50 bg-background/80 px-2 py-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
           {navLinks.map((link) => {
             const Icon = link.icon
             const isActive = activeSection === link.href
@@ -140,6 +156,15 @@ export function Navbar() {
               </a>
             )
           })}
+          {/* Mobile theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300"
+            aria-label="Changer de thème"
+          >
+            {mounted && (theme === "dark" ? <Sun size={20} /> : <Moon size={20} />)}
+            <span className="text-[10px] font-medium">Thème</span>
+          </button>
         </div>
       </motion.nav>
     </>

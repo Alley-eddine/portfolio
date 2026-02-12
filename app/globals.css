@@ -9,7 +9,45 @@
 }
 
 @layer base {
+  /* ─── Light theme (white + pale violet) ─── */
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+    --primary: 263 70% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 10% 95%;
+    --secondary-foreground: 265 10% 35%;
+    --muted: 265 5% 94%;
+    --muted-foreground: 265 5% 40%;
+    --accent: 263 70% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 265 10% 90%;
+    --input: 265 10% 90%;
+    --ring: 263 70% 58%;
+    --chart-1: 263 70% 58%;
+    --chart-2: 280 50% 55%;
+    --chart-3: 250 40% 50%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 263 70% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 265 10% 95%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 265 10% 90%;
+    --sidebar-ring: 263 70% 58%;
+  }
+
+  /* ─── Dark theme (original teal) ─── */
+  .dark {
     --background: 220 20% 4%;
     --foreground: 210 20% 95%;
     --card: 220 18% 7%;
@@ -34,7 +72,6 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.75rem;
     --sidebar-background: 220 18% 7%;
     --sidebar-foreground: 210 20% 95%;
     --sidebar-primary: 168 80% 58%;
@@ -60,6 +97,6 @@ html {
 }
 
 ::selection {
-  background: hsl(168 80% 58% / 0.3);
-  color: hsl(210 20% 95%);
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
 }

@@ -66,7 +66,7 @@ export function HeroSection() {
       </div>
 
       {/* Grid lines */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(hsl(220_15%_14%/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(220_15%_14%/0.3)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.div
@@ -119,7 +119,7 @@ export function HeroSection() {
         >
           <a
             href="#projets"
-            className="w-full rounded-lg bg-primary px-8 py-3.5 text-center text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_hsl(168_80%_58%/0.3)] sm:w-auto"
+            className="w-full rounded-lg bg-primary px-8 py-3.5 text-center text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] sm:w-auto"
           >
             Voir mes projets
           </a>
