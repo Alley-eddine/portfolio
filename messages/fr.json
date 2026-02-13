@@ -102,6 +102,9 @@
     "sending": "Envoi en cours...",
     "error": "Une erreur est survenue. Veuillez réessayer."
   },
+  "trusted": {
+    "title": "Ils m'ont fait confiance"
+  },
   "footer": {
     "rights": "© 2026 — Tous droits réservés"
   },

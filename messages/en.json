@@ -102,6 +102,9 @@
     "sending": "Sending...",
     "error": "Something went wrong. Please try again."
   },
+  "trusted": {
+    "title": "They trusted me"
+  },
   "footer": {
     "rights": "© 2026 — All rights reserved"
   },

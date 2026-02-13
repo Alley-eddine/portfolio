@@ -4,6 +4,7 @@ import { useState, useCallback } from "react"
 import { IntroLoader } from "@/components/intro-loader"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
+import { TrustedSection } from "@/components/trusted-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { SkillsSection } from "@/components/skills-section"
 import { ContactSection } from "@/components/contact-section"
@@ -22,6 +23,7 @@ export default function Page() {
       <main className="relative min-h-screen overflow-x-hidden">
         <Navbar />
         <HeroSection />
+        <TrustedSection />
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />
