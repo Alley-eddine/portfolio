@@ -52,7 +52,7 @@ export function Navbar() {
         className="fixed left-5 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-1 md:flex"
       >
         {/* Glass pill container */}
-        <div className="flex flex-col items-center gap-1 rounded-2xl border border-border/50 bg-background/60 p-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col items-center gap-1 rounded-2xl border border-border/50 bg-background/60 p-2 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:border-border/50">
           {/* Logo */}
           <a
             href="#accueil"
@@ -130,7 +130,7 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
       >
-        <div className="flex items-center justify-around rounded-2xl border border-border/50 bg-background/80 px-2 py-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        <div className="flex items-center justify-around rounded-2xl border border-border/50 bg-background/80 px-2 py-2 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
           {navLinks.map((link) => {
             const Icon = link.icon
             const isActive = activeSection === link.href

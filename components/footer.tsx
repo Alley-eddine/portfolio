@@ -4,10 +4,10 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border px-6 py-8">
+    <footer className="border-t border-border px-6 py-8 shadow-[0_-1px_8px_rgba(0,0,0,0.03)] dark:shadow-none">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 border border-primary/20">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 border border-primary/20 shadow-sm dark:shadow-none">
             <span className="font-mono text-xs font-bold text-primary">{"</"}</span>
           </div>
           <span className="font-mono text-xs text-muted-foreground">

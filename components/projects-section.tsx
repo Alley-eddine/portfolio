@@ -97,6 +97,32 @@ const projects: Project[] = [
     image: "/projects/portfolio-gen.jpg",
     accent: "hsl(280 80% 55%)",
   },
+  {
+    id: 7,
+    title: "Real-time Chat App",
+    description: "Application de chat en temps reel avec WebSockets et notifications push.",
+    longDescription:
+      "Application de chat en temps reel avec systeme de messagerie instantanee, notifications push, gestion des utilisateurs connectes, et interface utilisateur moderne. Construite avec React, Node.js, Express et Socket.IO.",
+    tech: ["React", "Node.js", "Express", "Socket.IO", "MongoDB"],
+    category: "Full Stack",
+    github: "#",
+    live: "#",
+    image: "/projects/chat-app.jpg",
+    accent: "hsl(200 80% 55%)",
+  },
+  {
+    id: 8,
+    title: "Event Booking System",
+    description: "Systeme de reservation d'evenements avec calendrier interactif et paiement en ligne.",
+    longDescription:
+      "Systeme de reservation d'evenements avec calendrier interactif, gestion des places, integration Stripe pour les paiements, et tableau de bord administrateur pour la gestion des evenements. Construit avec Vue.js pour le frontend et Laravel pour le backend.",
+    tech: ["Vue.js", "Laravel", "MySQL", "Stripe", "Vercel"],
+    category: "Full Stack",
+    github: "#",
+    live: "#",
+    image: "/projects/event-booking.jpg",
+    accent: "hsl(350 80% 55%)",
+  }
 ]
 
 const categories = ["Tous", "Full Stack", "Frontend", "Backend"]
@@ -110,7 +136,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative w-full overflow-hidden rounded-xl border border-border bg-card text-left transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_hsl(var(--primary)/0.06)]"
+      className="group relative w-full overflow-hidden rounded-xl border border-border bg-card text-left shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none transition-all duration-500 hover:border-primary/30 hover:shadow-[0_4px_24px_hsl(var(--primary)/0.1)]"
     >
       {/* Image preview */}
       <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -142,7 +168,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
           {project.tech.slice(0, 4).map((t) => (
             <span
               key={t}
-              className="rounded-md border border-border bg-secondary/50 px-2 py-0.5 font-mono text-xs text-muted-foreground"
+              className="rounded-md border border-border bg-secondary/50 px-2 py-0.5 font-mono text-xs text-muted-foreground shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:shadow-none"
             >
               {t}
             </span>
@@ -235,7 +261,7 @@ function ProjectModal({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-secondary py-3 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/40"
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-secondary py-3 text-sm font-medium text-foreground shadow-sm dark:shadow-none transition-all duration-300 hover:border-primary/40"
               >
                 <Github size={16} />
                 Code source
@@ -246,7 +272,7 @@ function ProjectModal({
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
               >
                 <ExternalLink size={16} />
                 Voir le projet
@@ -292,8 +318,8 @@ export function ProjectsSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_hsl(var(--primary)/0.2)]"
-                    : "border border-border bg-secondary text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    ? "bg-primary text-primary-foreground shadow-[0_2px_12px_hsl(var(--primary)/0.3)]"
+                    : "border border-border bg-secondary text-muted-foreground shadow-sm dark:shadow-none hover:text-foreground hover:border-primary/30"
                 }`}
               >
                 {cat}

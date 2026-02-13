@@ -397,7 +397,7 @@ function OrbitalCarousel({ items }: { items: TechItem[] }) {
           >
             <div className="flex flex-col items-center gap-2">
               <div
-                className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card/90 backdrop-blur-sm transition-all duration-300 sm:h-[72px] sm:w-[72px]"
+                className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card/90 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.06)] dark:shadow-none transition-all duration-300 sm:h-[72px] sm:w-[72px]"
                 style={
                   hoveredIndex === i
                     ? {
@@ -465,8 +465,8 @@ export function SkillsSection() {
                 onClick={() => setActiveFilter(f.key)}
                 className={`rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   activeFilter === f.key
-                    ? "border-primary/50 bg-primary/10 text-primary shadow-[0_0_16px_hsl(var(--primary)/0.1)]"
-                    : "border-border bg-card text-muted-foreground hover:border-primary/20 hover:text-foreground"
+                    ? "border-primary/50 bg-primary/10 text-primary shadow-[0_2px_12px_hsl(var(--primary)/0.15)]"
+                    : "border-border bg-card text-muted-foreground shadow-sm dark:shadow-none hover:border-primary/20 hover:text-foreground"
                 }`}
               >
                 {f.label}

@@ -47,7 +47,7 @@ export function ContactSection() {
           {/* Contact Info */}
           <AnimatedSection delay={0.1} className="lg:col-span-2">
             <div className="flex flex-col gap-6">
-              <div className="rounded-xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none">
                 <h3 className="mb-6 text-lg font-semibold text-foreground">
                   Informations
                 </h3>
@@ -73,7 +73,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none">
                 <h3 className="mb-4 text-sm font-medium text-muted-foreground">
                   Retrouvez-moi sur
                 </h3>
@@ -88,7 +88,7 @@ export function ContactSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-secondary/50 text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary"
+                      className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-secondary/50 text-muted-foreground shadow-sm dark:shadow-none transition-all duration-300 hover:border-primary/40 hover:text-primary"
                     >
                       <Icon size={18} />
                     </a>
@@ -100,7 +100,7 @@ export function ContactSection() {
 
           {/* Contact Form */}
           <AnimatedSection delay={0.2} className="lg:col-span-3">
-            <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
+            <div className="rounded-xl border border-border bg-card p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -133,7 +133,7 @@ export function ContactSection() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         required
-                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
                         placeholder="Votre nom"
                       />
                     </div>
@@ -152,7 +152,7 @@ export function ContactSection() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         required
-                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
                         placeholder="votre@email.com"
                       />
                     </div>
@@ -191,7 +191,7 @@ export function ContactSection() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       required
-                      className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                      className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
                       placeholder="Décrivez votre projet ou votre demande..."
                     />
                   </div>
@@ -199,7 +199,7 @@ export function ContactSection() {
                     type="submit"
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
+                    className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
                   >
                     <Send size={16} />
                     Envoyer le message
