@@ -1,8 +1,10 @@
 "use client"
 
 import { Github, Linkedin, Mail } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function Footer() {
+  const t = useTranslations("footer")
   return (
     <footer className="border-t border-border px-6 py-8 shadow-[0_-1px_8px_rgba(0,0,0,0.03)] dark:shadow-none">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
@@ -11,7 +13,7 @@ export function Footer() {
             <span className="font-mono text-xs font-bold text-primary">{"</"}</span>
           </div>
           <span className="font-mono text-xs text-muted-foreground">
-            {"© 2026 — Tous droits réservés"}
+            {t("rights")}
           </span>
         </div>
 

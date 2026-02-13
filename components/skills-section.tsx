@@ -3,6 +3,7 @@
 import { useInView, useAnimationFrame } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { AnimatedSection } from "./animated-section"
+import { useTranslations } from "next-intl"
 
 interface TechItem {
   name: string
@@ -196,7 +197,7 @@ function PayloadIcon() {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend",
+    title: "frontend",
     label: "</>",
     items: [
       { name: "React", icon: <ReactIcon />, color: "#61DAFB" },
@@ -208,7 +209,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Backend",
+    title: "backend",
     label: "{ }",
     items: [
       { name: "Node.js", icon: <NodeIcon />, color: "#83CD29" },
@@ -219,7 +220,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Base de donnees",
+    title: "database",
     label: "DB",
     items: [
       { name: "MongoDB", icon: <MongoDBIcon />, color: "#45A538" },
@@ -229,7 +230,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "DevOps & Deploy",
+    title: "devops",
     label: ">>",
     items: [
       { name: "Docker", icon: <DockerIcon />, color: "#00AADA" },
@@ -238,13 +239,6 @@ const skillCategories: SkillCategory[] = [
       { name: "Cloudflare", icon: <CloudflareIcon />, color: "#F48120" },
     ],
   },
-]
-
-/* ---- Filter tabs ---- */
-
-const filters = [
-  { key: "all", label: "Tout" },
-  ...skillCategories.map((c) => ({ key: c.title, label: c.title })),
 ]
 
 function getFilteredItems(filterKey: string): TechItem[] {
@@ -432,8 +426,14 @@ function OrbitalCarousel({ items }: { items: TechItem[] }) {
 /* ---- Main section ---- */
 
 export function SkillsSection() {
+  const t = useTranslations("skills")
   const [activeFilter, setActiveFilter] = useState("all")
   const filteredItems = getFilteredItems(activeFilter)
+
+  const filters = [
+    { key: "all", label: t("all") },
+    ...skillCategories.map((c) => ({ key: c.title, label: t(c.title) })),
+  ]
 
   return (
     <section id="competences" className="relative px-6 py-24 sm:py-32">
@@ -449,10 +449,10 @@ export function SkillsSection() {
             <span className="font-mono text-sm text-primary">03</span>
           </div>
           <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl text-balance">
-            Competences
+            {t("title")}
           </h2>
           <p className="mb-8 max-w-xl leading-relaxed text-muted-foreground">
-            {"Un eventail de technologies maitrisees, du front au back, en passant par les bases de donnees et le DevOps."}
+            {t("description")}
           </p>
         </AnimatedSection>
 

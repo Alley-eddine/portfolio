@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 const SPLIT_DELAY = 0.8
 const SPLIT_DURATION = 1.5
@@ -11,6 +12,7 @@ const TOTAL = EXIT_DELAY + 1.0
 const ease: [number, number, number, number] = [0.76, 0, 0.24, 1]
 
 export function IntroLoader({ onComplete }: { onComplete: () => void }) {
+  const t = useTranslations("intro")
   const [phase, setPhase] = useState<"intro" | "split" | "exit">("intro")
   const [visible, setVisible] = useState(true)
 
@@ -120,7 +122,7 @@ export function IntroLoader({ onComplete }: { onComplete: () => void }) {
         animate={{ opacity: phase === "split" ? 1 : 0 }}
         transition={{ duration: 0.5, delay: phase === "split" ? 0.6 : 0 }}
       >
-        DÉVELOPPEUR FULL STACK
+        {t("tagline")}
       </motion.p>
     </div>
   )

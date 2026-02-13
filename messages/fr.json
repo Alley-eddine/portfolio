@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "title": "Portfolio | Développeur Full Stack",
+    "description": "Développeur Full Stack passionné. React, Next.js, Vue, Node.js, Laravel, Express, MongoDB, PostgreSQL, Redis, Docker."
+  },
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "changeTheme": "Changer de thème",
+    "theme": "Thème",
+    "language": "Langue"
+  },
+  "hero": {
+    "available": "Disponible pour de nouveaux projets",
+    "developer": "Développeur",
+    "fullStack": "Full Stack",
+    "description": "Je conçois et développe des applications web performantes et élégantes, du front-end au back-end. Passionné par les architectures modernes et les expériences utilisateur exceptionnelles.",
+    "viewProjects": "Voir mes projets",
+    "contactMe": "Me contacter"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "description": "Une selection de projets qui illustrent mon expertise en developpement full stack, du concept a la mise en production.",
+    "all": "Tous",
+    "technologies": "Technologies",
+    "sourceCode": "Code source",
+    "viewProject": "Voir le projet",
+    "close": "Fermer",
+    "previewAlt": "Preview de {title}",
+    "items": {
+      "1": {
+        "title": "E-Commerce Platform",
+        "description": "Plateforme e-commerce complete avec panier, paiement Stripe et dashboard admin.",
+        "longDescription": "Application e-commerce full-stack avec authentification, gestion de catalogue, panier dynamique, integration Stripe pour les paiements, et un tableau de bord administrateur complet. Deploye sur Vercel avec Supabase pour la base de donnees et Redis pour le caching."
+      },
+      "2": {
+        "title": "Task Management App",
+        "description": "Application de gestion de projets en temps reel avec tableaux Kanban.",
+        "longDescription": "Outil de gestion de taches collaboratif inspire de Trello avec drag-and-drop, notifications en temps reel via WebSockets, assignation de membres, filtres avances et synchronisation multi-utilisateurs. Backend Express avec MongoDB."
+      },
+      "3": {
+        "title": "Blog CMS Headless",
+        "description": "CMS headless complet avec Payload CMS, Astro en front et deploy Cloudflare.",
+        "longDescription": "Systeme de gestion de contenu headless utilisant Payload CMS pour le back-office avec un frontend Astro ultra-rapide. Deploiement automatise sur Cloudflare Pages avec pipeline CI/CD via GitHub Actions. Integration Keystatic pour l'edition en ligne."
+      },
+      "4": {
+        "title": "Dashboard Analytics",
+        "description": "Tableau de bord interactif avec visualisations de donnees en temps reel.",
+        "longDescription": "Dashboard analytique avec graphiques interactifs, filtres dynamiques, export de rapports, notifications intelligentes, et integration avec plusieurs sources de donnees. Construit avec Next.js, Supabase pour le temps reel et Redis pour le caching."
+      },
+      "5": {
+        "title": "API Microservices",
+        "description": "Architecture microservices pour plateforme sociale avec messagerie temps reel.",
+        "longDescription": "Architecture microservices pour une plateforme sociale avec gestion du feed algorithmique, messagerie temps reel, systeme de followers, notifications push et moderation de contenu. Orchestre avec Docker et deploye via CI/CD GitHub Actions."
+      },
+      "6": {
+        "title": "Portfolio Generator",
+        "description": "Generateur de portfolios dynamiques avec CMS headless et deploy automatise.",
+        "longDescription": "Application SaaS permettant de creer des portfolios personnalises avec un editeur visuel, themes customisables, SEO automatique via Astro, gestion du contenu avec Keystatic et deploiement automatique sur Vercel ou Cloudflare."
+      },
+      "7": {
+        "title": "Real-time Chat App",
+        "description": "Application de chat en temps reel avec WebSockets et notifications push.",
+        "longDescription": "Application de chat en temps reel avec systeme de messagerie instantanee, notifications push, gestion des utilisateurs connectes, et interface utilisateur moderne. Construite avec React, Node.js, Express et Socket.IO."
+      },
+      "8": {
+        "title": "Event Booking System",
+        "description": "Systeme de reservation d'evenements avec calendrier interactif et paiement en ligne.",
+        "longDescription": "Systeme de reservation d'evenements avec calendrier interactif, gestion des places, integration Stripe pour les paiements, et tableau de bord administrateur pour la gestion des evenements. Construit avec Vue.js pour le frontend et Laravel pour le backend."
+      }
+    }
+  },
+  "skills": {
+    "title": "Competences",
+    "description": "Un eventail de technologies maitrisees, du front au back, en passant par les bases de donnees et le DevOps.",
+    "all": "Tout",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Base de donnees",
+    "devops": "DevOps & Deploy"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Vous avez un projet en tête ou une opportunité ? N'hésitez pas à me contacter, je serais ravi d'échanger avec vous.",
+    "info": "Informations",
+    "email": "Email",
+    "location": "Localisation",
+    "locationValue": "Paris, France",
+    "findMe": "Retrouvez-moi sur",
+    "name": "Nom",
+    "subject": "Sujet",
+    "message": "Message",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "votre@email.com",
+    "subjectPlaceholder": "Sujet de votre message",
+    "messagePlaceholder": "Décrivez votre projet ou votre demande...",
+    "sent": "Message envoyé !",
+    "sentDescription": "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+    "send": "Envoyer le message"
+  },
+  "footer": {
+    "rights": "© 2026 — Tous droits réservés"
+  },
+  "intro": {
+    "tagline": "DÉVELOPPEUR FULL STACK"
+  }
+}

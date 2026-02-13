@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useTranslations } from "next-intl"
 
 const titles = [
   "React & Next.js",
@@ -54,6 +55,8 @@ function TypingAnimation() {
 }
 
 export function HeroSection() {
+  const t = useTranslations("hero")
+
   return (
     <section
       id="accueil"
@@ -79,7 +82,7 @@ export function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          <span className="text-sm text-primary">Disponible pour de nouveaux projets</span>
+          <span className="text-sm text-primary">{t("available")}</span>
         </motion.div>
 
         <motion.h1
@@ -88,9 +91,9 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="text-foreground">Développeur</span>
+          <span className="text-foreground">{t("developer")}</span>
           <br />
-          <span className="text-foreground">Full Stack</span>
+          <span className="text-foreground">{t("fullStack")}</span>
         </motion.h1>
 
         <motion.div
@@ -108,7 +111,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          {"Je conçois et développe des applications web performantes et élégantes, du front-end au back-end. Passionné par les architectures modernes et les expériences utilisateur exceptionnelles."}
+          {t("description")}
         </motion.p>
 
         <motion.div
@@ -121,13 +124,13 @@ export function HeroSection() {
             href="#projets"
             className="w-full rounded-lg bg-primary px-8 py-3.5 text-center text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] sm:w-auto"
           >
-            Voir mes projets
+            {t("viewProjects")}
           </a>
           <a
             href="#contact"
             className="w-full rounded-lg border border-border bg-secondary px-8 py-3.5 text-center text-sm font-medium text-foreground shadow-sm dark:shadow-none transition-all duration-300 hover:border-primary/40 hover:bg-secondary/80 sm:w-auto"
           >
-            Me contacter
+            {t("contactMe")}
           </a>
         </motion.div>
 

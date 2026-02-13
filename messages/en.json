@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "title": "Portfolio | Full Stack Developer",
+    "description": "Passionate Full Stack Developer. React, Next.js, Vue, Node.js, Laravel, Express, MongoDB, PostgreSQL, Redis, Docker."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "changeTheme": "Toggle theme",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "developer": "Full Stack",
+    "fullStack": "Developer",
+    "description": "I design and develop high-performance, elegant web applications, from front-end to back-end. Passionate about modern architectures and outstanding user experiences.",
+    "viewProjects": "View my projects",
+    "contactMe": "Contact me"
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "A selection of projects that showcase my expertise in full stack development, from concept to production.",
+    "all": "All",
+    "technologies": "Technologies",
+    "sourceCode": "Source code",
+    "viewProject": "View project",
+    "close": "Close",
+    "previewAlt": "Preview of {title}",
+    "items": {
+      "1": {
+        "title": "E-Commerce Platform",
+        "description": "Complete e-commerce platform with shopping cart, Stripe payments and admin dashboard.",
+        "longDescription": "Full-stack e-commerce application with authentication, catalog management, dynamic shopping cart, Stripe payment integration, and a comprehensive admin dashboard. Deployed on Vercel with Supabase for the database and Redis for caching."
+      },
+      "2": {
+        "title": "Task Management App",
+        "description": "Real-time project management application with Kanban boards.",
+        "longDescription": "Collaborative task management tool inspired by Trello with drag-and-drop, real-time notifications via WebSockets, member assignment, advanced filters and multi-user sync. Express backend with MongoDB."
+      },
+      "3": {
+        "title": "Blog CMS Headless",
+        "description": "Complete headless CMS with Payload CMS, Astro frontend and Cloudflare deployment.",
+        "longDescription": "Headless content management system using Payload CMS for the back-office with an ultra-fast Astro frontend. Automated deployment on Cloudflare Pages with CI/CD pipeline via GitHub Actions. Keystatic integration for inline editing."
+      },
+      "4": {
+        "title": "Dashboard Analytics",
+        "description": "Interactive dashboard with real-time data visualizations.",
+        "longDescription": "Analytical dashboard with interactive charts, dynamic filters, report exports, smart notifications, and integration with multiple data sources. Built with Next.js, Supabase for real-time and Redis for caching."
+      },
+      "5": {
+        "title": "API Microservices",
+        "description": "Microservices architecture for social platform with real-time messaging.",
+        "longDescription": "Microservices architecture for a social platform with algorithmic feed management, real-time messaging, follower system, push notifications and content moderation. Orchestrated with Docker and deployed via CI/CD GitHub Actions."
+      },
+      "6": {
+        "title": "Portfolio Generator",
+        "description": "Dynamic portfolio generator with headless CMS and automated deployment.",
+        "longDescription": "SaaS application for creating custom portfolios with a visual editor, customizable themes, automatic SEO via Astro, content management with Keystatic and automatic deployment to Vercel or Cloudflare."
+      },
+      "7": {
+        "title": "Real-time Chat App",
+        "description": "Real-time chat application with WebSockets and push notifications.",
+        "longDescription": "Real-time chat application with instant messaging system, push notifications, connected user management, and modern user interface. Built with React, Node.js, Express and Socket.IO."
+      },
+      "8": {
+        "title": "Event Booking System",
+        "description": "Event booking system with interactive calendar and online payment.",
+        "longDescription": "Event booking system with interactive calendar, seat management, Stripe payment integration, and admin dashboard for event management. Built with Vue.js for the frontend and Laravel for the backend."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "A range of mastered technologies, from front to back, including databases and DevOps.",
+    "all": "All",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Databases",
+    "devops": "DevOps & Deploy"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Have a project in mind or an opportunity? Don't hesitate to reach out, I'd love to discuss it with you.",
+    "info": "Information",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Paris, France",
+    "findMe": "Find me on",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "Subject of your message",
+    "messagePlaceholder": "Describe your project or inquiry...",
+    "sent": "Message sent!",
+    "sentDescription": "Thank you for your message. I will get back to you as soon as possible.",
+    "send": "Send message"
+  },
+  "footer": {
+    "rights": "© 2026 — All rights reserved"
+  },
+  "intro": {
+    "tagline": "FULL STACK DEVELOPER"
+  }
+}

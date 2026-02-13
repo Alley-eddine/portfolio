@@ -4,8 +4,10 @@ import { useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, MapPin, Github, Linkedin, CheckCircle } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
+import { useTranslations } from "next-intl"
 
 export function ContactSection() {
+  const t = useTranslations("contact")
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -36,10 +38,10 @@ export function ContactSection() {
             <span className="font-mono text-sm text-primary">04</span>
           </div>
           <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-            Contact
+            {t("title")}
           </h2>
           <p className="mb-12 max-w-xl text-muted-foreground leading-relaxed">
-            {"Vous avez un projet en tête ou une opportunité ? N'hésitez pas à me contacter, je serais ravi d'échanger avec vous."}
+            {t("description")}
           </p>
         </AnimatedSection>
 
@@ -49,7 +51,7 @@ export function ContactSection() {
             <div className="flex flex-col gap-6">
               <div className="rounded-xl border border-border bg-card p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none">
                 <h3 className="mb-6 text-lg font-semibold text-foreground">
-                  Informations
+                  {t("info")}
                 </h3>
                 <div className="flex flex-col gap-5">
                   <div className="flex items-start gap-4">
@@ -57,7 +59,7 @@ export function ContactSection() {
                       <Mail size={16} className="text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-foreground">Email</p>
+                      <p className="text-sm font-medium text-foreground">{t("email")}</p>
                       <p className="text-sm text-muted-foreground">contact@monportfolio.dev</p>
                     </div>
                   </div>
@@ -66,8 +68,8 @@ export function ContactSection() {
                       <MapPin size={16} className="text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-foreground">Localisation</p>
-                      <p className="text-sm text-muted-foreground">Paris, France</p>
+                      <p className="text-sm font-medium text-foreground">{t("location")}</p>
+                      <p className="text-sm text-muted-foreground">{t("locationValue")}</p>
                     </div>
                   </div>
                 </div>
@@ -75,7 +77,7 @@ export function ContactSection() {
 
               <div className="rounded-xl border border-border bg-card p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none">
                 <h3 className="mb-4 text-sm font-medium text-muted-foreground">
-                  Retrouvez-moi sur
+                  {t("findMe")}
                 </h3>
                 <div className="flex gap-3">
                   {[
@@ -110,9 +112,9 @@ export function ContactSection() {
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                     <CheckCircle size={32} className="text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold text-foreground">Message envoyé !</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-foreground">{t("sent")}</h3>
                   <p className="text-sm text-muted-foreground">
-                    {"Merci pour votre message. Je vous répondrai dans les plus brefs délais."}
+                    {t("sentDescription")}
                   </p>
                 </motion.div>
               ) : (
@@ -123,7 +125,7 @@ export function ContactSection() {
                         htmlFor="name"
                         className="mb-2 block font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground"
                       >
-                        Nom
+                        {t("name")}
                       </label>
                       <input
                         type="text"
@@ -134,7 +136,7 @@ export function ContactSection() {
                         }
                         required
                         className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
-                        placeholder="Votre nom"
+                        placeholder={t("namePlaceholder")}
                       />
                     </div>
                     <div>
@@ -142,7 +144,7 @@ export function ContactSection() {
                         htmlFor="email"
                         className="mb-2 block font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground"
                       >
-                        Email
+                        {t("email")}
                       </label>
                       <input
                         type="email"
@@ -153,7 +155,7 @@ export function ContactSection() {
                         }
                         required
                         className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
-                        placeholder="votre@email.com"
+                        placeholder={t("emailPlaceholder")}
                       />
                     </div>
                   </div>
@@ -162,7 +164,7 @@ export function ContactSection() {
                       htmlFor="subject"
                       className="mb-2 block font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground"
                     >
-                      Sujet
+                      {t("subject")}
                     </label>
                     <input
                       type="text"
@@ -173,7 +175,7 @@ export function ContactSection() {
                       }
                       required
                       className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
-                      placeholder="Sujet de votre message"
+                      placeholder={t("subjectPlaceholder")}
                     />
                   </div>
                   <div>
@@ -181,7 +183,7 @@ export function ContactSection() {
                       htmlFor="message"
                       className="mb-2 block font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground"
                     >
-                      Message
+                      {t("message")}
                     </label>
                     <textarea
                       id="message"
@@ -192,7 +194,7 @@ export function ContactSection() {
                       }
                       required
                       className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-300 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
-                      placeholder="Décrivez votre projet ou votre demande..."
+                      placeholder={t("messagePlaceholder")}
                     />
                   </div>
                   <motion.button
@@ -202,7 +204,7 @@ export function ContactSection() {
                     className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
                   >
                     <Send size={16} />
-                    Envoyer le message
+                    {t("send")}
                   </motion.button>
                 </form>
               )}

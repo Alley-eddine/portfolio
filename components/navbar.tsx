@@ -2,17 +2,24 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, FolderOpen, Zap, Mail, Sun, Moon } from "lucide-react"
+import { Home, FolderOpen, Zap, Mail, Sun, Moon, Languages } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useTranslations, useLocale } from "next-intl"
+import { useRouter, usePathname } from "@/i18n/navigation"
 
 const navLinks = [
-  { href: "#accueil", label: "Accueil", icon: Home },
-  { href: "#projets", label: "Projets", icon: FolderOpen },
-  { href: "#competences", label: "Compétences", icon: Zap },
-  { href: "#contact", label: "Contact", icon: Mail },
-]
+  { href: "#accueil", key: "home", icon: Home },
+  { href: "#projets", key: "projects", icon: FolderOpen },
+  { href: "#competences", key: "skills", icon: Zap },
+  { href: "#contact", key: "contact", icon: Mail },
+] as const
 
 export function Navbar() {
+  const t = useTranslations("nav")
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+
   const [activeSection, setActiveSection] = useState("#accueil")
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -41,6 +48,10 @@ export function Navbar() {
   }, [updateActive])
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
+  const toggleLocale = () => {
+    const next = locale === "fr" ? "en" : "fr"
+    router.replace(pathname, { locale: next })
+  }
 
   return (
     <>
@@ -101,7 +112,7 @@ export function Navbar() {
                       transition={{ duration: 0.15 }}
                       className="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur-xl shadow-lg"
                     >
-                      {link.label}
+                      {t(link.key)}
                       <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 rotate-45 h-2 w-2 border-l border-b border-border/50 bg-background/95" />
                     </motion.div>
                   )}
@@ -116,9 +127,20 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             className="flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
-            aria-label="Changer de thème"
+            aria-label={t("changeTheme")}
           >
             {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+          </button>
+
+          {/* Locale toggle */}
+          <button
+            onClick={toggleLocale}
+            className="flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+            aria-label={t("language")}
+          >
+            <span className="font-mono text-xs font-bold uppercase">
+              {locale === "fr" ? "EN" : "FR"}
+            </span>
           </button>
         </div>
       </motion.nav>
@@ -152,7 +174,7 @@ export function Navbar() {
                   />
                 )}
                 <Icon size={20} strokeWidth={isActive ? 2.2 : 1.5} className="relative z-10" />
-                <span className="relative z-10 text-[10px] font-medium">{link.label}</span>
+                <span className="relative z-10 text-[10px] font-medium">{t(link.key)}</span>
               </a>
             )
           })}
@@ -160,10 +182,19 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300"
-            aria-label="Changer de thème"
+            aria-label={t("changeTheme")}
           >
             {mounted && (theme === "dark" ? <Sun size={20} /> : <Moon size={20} />)}
-            <span className="text-[10px] font-medium">Thème</span>
+            <span className="text-[10px] font-medium">{t("theme")}</span>
+          </button>
+          {/* Mobile locale toggle */}
+          <button
+            onClick={toggleLocale}
+            className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300"
+            aria-label={t("language")}
+          >
+            <Languages size={20} />
+            <span className="text-[10px] font-medium uppercase">{locale === "fr" ? "EN" : "FR"}</span>
           </button>
         </div>
       </motion.nav>
