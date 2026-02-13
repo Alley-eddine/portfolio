@@ -98,7 +98,9 @@
     "messagePlaceholder": "Describe your project or inquiry...",
     "sent": "Message sent!",
     "sentDescription": "Thank you for your message. I will get back to you as soon as possible.",
-    "send": "Send message"
+    "send": "Send message",
+    "sending": "Sending...",
+    "error": "Something went wrong. Please try again."
   },
   "footer": {
     "rights": "© 2026 — All rights reserved"

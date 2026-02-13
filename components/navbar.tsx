@@ -63,18 +63,18 @@ export function Navbar() {
         className="fixed left-5 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-1 md:flex"
       >
         {/* Glass pill container */}
-        <div className="flex flex-col items-center gap-1 rounded-2xl border border-border/50 bg-background/60 p-2 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:border-border/50">
+        <div className="flex flex-col items-center gap-0.5 rounded-2xl border border-border/50 bg-background/60 p-1.5 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:border-border/50">
           {/* Logo */}
           <a
             href="#accueil"
-            className="group mb-1 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40"
+            className="group mb-0.5 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40"
           >
             <span className="font-mono text-xs font-bold text-primary transition-transform duration-300 group-hover:scale-110">
               {"</"}
             </span>
           </a>
 
-          <div className="my-1 h-px w-6 bg-border/50" />
+          <div className="my-0.5 h-px w-5 bg-border/50" />
 
           {/* Nav items */}
           {navLinks.map((link, i) => {
@@ -86,7 +86,7 @@ export function Navbar() {
                   href={link.href}
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300 ${
+                  className={`relative flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
                     isActive
                       ? "bg-primary/15 text-primary"
                       : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -121,21 +121,21 @@ export function Navbar() {
             )
           })}
 
-          <div className="my-1 h-px w-6 bg-border/50" />
+          <div className="my-0.5 h-px w-5 bg-border/50" />
 
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
             aria-label={t("changeTheme")}
           >
-            {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+            {mounted && (theme === "dark" ? <Sun size={17} /> : <Moon size={17} />)}
           </button>
 
           {/* Locale toggle */}
           <button
             onClick={toggleLocale}
-            className="flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
             aria-label={t("language")}
           >
             <span className="font-mono text-xs font-bold uppercase">

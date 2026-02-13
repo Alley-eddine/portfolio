@@ -98,7 +98,9 @@
     "messagePlaceholder": "Décrivez votre projet ou votre demande...",
     "sent": "Message envoyé !",
     "sentDescription": "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
-    "send": "Envoyer le message"
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "error": "Une erreur est survenue. Veuillez réessayer."
   },
   "footer": {
     "rights": "© 2026 — Tous droits réservés"

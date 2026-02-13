@@ -6,9 +6,13 @@ import { Send, Mail, MapPin, Github, Linkedin, CheckCircle } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 import { useTranslations } from "next-intl"
 
+const FORMSPREE_ID = "mkovjerw"
+
 export function ContactSection() {
   const t = useTranslations("contact")
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,13 +20,32 @@ export function ContactSection() {
     message: "",
   })
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: "", email: "", subject: "", message: "" })
-    }, 3000)
+    setSending(true)
+    setError(false)
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+        setTimeout(() => {
+          setSubmitted(false)
+          setFormData({ name: "", email: "", subject: "", message: "" })
+        }, 3000)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -60,7 +83,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">{t("email")}</p>
-                      <p className="text-sm text-muted-foreground">contact@monportfolio.dev</p>
+                      <p className="text-sm text-muted-foreground">ben.alleycom@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -197,14 +220,18 @@ export function ContactSection() {
                       placeholder={t("messagePlaceholder")}
                     />
                   </div>
+                  {error && (
+                    <p className="text-sm text-red-500">{t("error")}</p>
+                  )}
                   <motion.button
                     type="submit"
+                    disabled={sending}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
+                    className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_2px_8px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] disabled:opacity-50"
                   >
                     <Send size={16} />
-                    {t("send")}
+                    {sending ? t("sending") : t("send")}
                   </motion.button>
                 </form>
               )}
