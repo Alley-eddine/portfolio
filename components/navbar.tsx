@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Home, FolderOpen, Zap, Mail, Languages } from "lucide-react"
 import { useTheme } from "next-themes"
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+import { Dock, DockIcon } from "@/components/ui/dock"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "@/i18n/navigation"
 
@@ -141,58 +142,43 @@ export function Navbar() {
       </motion.nav>
 
       {/* ─── Mobile: floating bottom bar ─── */}
-      <motion.nav
+      <motion.div
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
+        className="fixed bottom-4 left-4 right-4 z-50 md:hidden flex justify-center"
       >
-        <div className="flex items-center justify-around rounded-2xl border border-border/50 bg-background/80 px-2 py-2 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        <Dock
+          iconSize={36}
+          iconMagnification={56}
+          iconDistance={100}
+          className="h-auto gap-1 rounded-2xl border-border/50 bg-background/80 px-3 py-2 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        >
           {navLinks.map((link) => {
             const Icon = link.icon
             const isActive = activeSection === link.href
             return (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 transition-all duration-300 ${
-                  isActive
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {isActive && (
-                  <motion.div
-                    layoutId="mobile-active"
-                    className="absolute inset-0 rounded-xl bg-primary/10"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-                <Icon size={20} strokeWidth={isActive ? 2.2 : 1.5} className="relative z-10" />
-                <span className="relative z-10 text-[10px] font-medium">{t(link.key)}</span>
-              </a>
+              <DockIcon key={link.href} className={isActive ? "text-primary" : "text-muted-foreground"}>
+                <a href={link.href} className="flex items-center justify-center">
+                  <Icon size={20} strokeWidth={isActive ? 2.2 : 1.5} />
+                </a>
+              </DockIcon>
             )
           })}
-          {/* Mobile theme toggle */}
-          <div className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300">
+          <DockIcon className="text-muted-foreground">
             <AnimatedThemeToggler
               onThemeChange={setTheme}
               className="[&_svg]:size-5"
               aria-label={t("changeTheme")}
             />
-            <span className="text-[10px] font-medium">{t("theme")}</span>
-          </div>
-          {/* Mobile locale toggle */}
-          <button
-            onClick={toggleLocale}
-            className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300"
-            aria-label={t("language")}
-          >
-            <Languages size={20} />
-            <span className="text-[10px] font-medium uppercase">{locale === "fr" ? "EN" : "FR"}</span>
-          </button>
-        </div>
-      </motion.nav>
+          </DockIcon>
+          <DockIcon className="text-muted-foreground">
+            <button onClick={toggleLocale} aria-label={t("language")}>
+              <span className="font-mono text-xs font-bold uppercase">{locale === "fr" ? "EN" : "FR"}</span>
+            </button>
+          </DockIcon>
+        </Dock>
+      </motion.div>
     </>
   )
 }

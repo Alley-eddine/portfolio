@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, MapPin, Github, Linkedin, CheckCircle } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
+import { AuroraText } from "@/components/ui/aurora-text"
 import { useTranslations } from "next-intl"
 
 const FORMSPREE_ID = "mkovjerw"
@@ -60,8 +61,8 @@ export function ContactSection() {
             <div className="h-px flex-1 max-w-12 bg-primary" />
             <span className="font-mono text-sm text-primary">04</span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-            {t("title")}
+          <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+            <AuroraText colors={["#8b5cf6", "#6366f1", "#0ea5e9", "#8b5cf6"]} speed={0.8}>{t("title")}</AuroraText>
           </h2>
           <p className="mb-12 max-w-xl text-muted-foreground leading-relaxed">
             {t("description")}

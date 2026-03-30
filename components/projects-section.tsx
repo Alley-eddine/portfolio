@@ -6,6 +6,7 @@ import { ExternalLink, Github, ChevronRight, X } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 import { Safari } from "@/components/ui/safari"
 import { Iphone } from "@/components/ui/iphone"
+import { AuroraText } from "@/components/ui/aurora-text"
 import { useTranslations } from "next-intl"
 
 interface Project {
@@ -306,8 +307,8 @@ export function ProjectsSection() {
             <div className="h-px flex-1 max-w-12 bg-primary" />
             <span className="font-mono text-sm text-primary">02</span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-            {t("title")}
+          <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+            <AuroraText colors={["#8b5cf6", "#6366f1", "#0ea5e9", "#8b5cf6"]} speed={0.8}>{t("title")}</AuroraText>
           </h2>
           <p className="mb-10 max-w-xl text-muted-foreground leading-relaxed">
             {t("description")}

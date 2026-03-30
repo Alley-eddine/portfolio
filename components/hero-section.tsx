@@ -5,6 +5,9 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { TextAnimate } from "@/components/ui/text-animate"
+import { AuroraText } from "@/components/ui/aurora-text"
+import { Ripple } from "@/components/ui/ripple"
+import { ClickRipple } from "@/components/click-ripple"
 
 const titles = [
   "React & Next.js",
@@ -63,14 +66,10 @@ export function HeroSection() {
       id="accueil"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20"
     >
-      {/* Glow background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute right-1/4 bottom-1/4 h-[300px] w-[300px] rounded-full bg-primary/3 blur-[100px]" />
-      </div>
-
-      {/* Grid lines */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
+      {/* Static ripple background */}
+      <Ripple mainCircleSize={150} mainCircleOpacity={0.08} numCircles={6} className="[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]" />
+      {/* Interactive click ripples */}
+      <ClickRipple numCircles={6} circleSize={40} opacity={0.15} />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.div
@@ -109,17 +108,13 @@ export function HeroSection() {
             {t("developer")}
           </TextAnimate>
           <br />
-          <TextAnimate
-            as="span"
-            by="word"
-            animation="blurInUp"
-            delay={0.4}
-            duration={0.8}
-            startOnView={false}
-            className="text-foreground"
+          <AuroraText
+            className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            colors={["#8b5cf6", "#6366f1", "#0ea5e9", "#8b5cf6"]}
+            speed={0.8}
           >
             {t("fullStack")}
-          </TextAnimate>
+          </AuroraText>
         </h1>
 
         <motion.div

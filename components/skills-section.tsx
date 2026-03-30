@@ -3,6 +3,7 @@
 import { useInView, useAnimationFrame } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { AnimatedSection } from "./animated-section"
+import { AuroraText } from "@/components/ui/aurora-text"
 import { useTranslations } from "next-intl"
 
 interface TechItem {
@@ -448,8 +449,8 @@ export function SkillsSection() {
             <div className="h-px w-12 bg-primary" />
             <span className="font-mono text-sm text-primary">03</span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl text-balance">
-            {t("title")}
+          <h2 className="mb-4 text-3xl font-bold sm:text-4xl text-balance">
+            <AuroraText colors={["#8b5cf6", "#6366f1", "#0ea5e9", "#8b5cf6"]} speed={0.8}>{t("title")}</AuroraText>
           </h2>
           <p className="mb-8 max-w-xl leading-relaxed text-muted-foreground">
             {t("description")}
