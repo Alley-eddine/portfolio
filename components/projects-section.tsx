@@ -4,7 +4,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, ChevronRight, X } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
-import Image from "next/image"
+import { Safari } from "@/components/ui/safari"
+import { Iphone } from "@/components/ui/iphone"
 import { useTranslations } from "next-intl"
 
 interface Project {
@@ -15,6 +16,7 @@ interface Project {
   github?: string
   live?: string
   image: string
+  mobileImage?: string
   accent: string
 }
 
@@ -22,81 +24,86 @@ const projects: Project[] = [
   {
     id: 1,
     titleKey: "1",
-    tech: ["Next.js", "React", "Supabase", "Redis", "Vercel", "Stripe"],
+    tech: ["Next.js 16", "NestJS", "Prisma", "Stripe", "Supabase", "Zustand"],
     category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/ecommerce.jpg",
-    accent: "hsl(168 80% 58%)",
+    github: "https://github.com/Alley-eddine/boucherie-ecommerce",
+    live: "https://www.boucheriechayma.fr",
+    image: "/screenshots/boucherie-chayma.png",
+    mobileImage: "/screenshots/boucherie-chayma-mobile.png",
+    accent: "hsl(15 80% 50%)",
   },
   {
     id: 2,
     titleKey: "2",
-    tech: ["Vue.js", "Node.js", "Express", "MongoDB", "Docker"],
+    tech: ["Next.js 15", "Supabase", "Framer Motion", "jsPDF", "Google OAuth"],
     category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/taskmanager.jpg",
-    accent: "hsl(200 80% 55%)",
+    github: "https://github.com/Bensow-auto/bensow-auto",
+    live: "https://bensowauto.fr",
+    image: "/screenshots/bensow-auto.png",
+    mobileImage: "/screenshots/bensow-auto-mobile.png",
+    accent: "hsl(220 80% 55%)",
   },
   {
     id: 3,
     titleKey: "3",
-    tech: ["Astro", "Payload CMS", "Keystatic", "PostgreSQL", "Cloudflare"],
+    tech: ["Next.js 16", "Laravel", "Framer Motion", "Stripe", "next-intl"],
     category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/blog-api.jpg",
-    accent: "hsl(350 80% 55%)",
+    github: "https://github.com/Alley-eddine/mcc",
+    live: "https://mcc-red.vercel.app",
+    image: "/screenshots/mcc.png",
+    mobileImage: "/screenshots/mcc-mobile.png",
+    accent: "hsl(45 80% 55%)",
   },
   {
     id: 4,
     titleKey: "4",
-    tech: ["React", "Next.js", "Supabase", "Redis", "Vercel"],
-    category: "Frontend",
-    github: "#",
-    live: "#",
-    image: "/projects/dashboard.jpg",
-    accent: "hsl(45 80% 55%)",
+    tech: ["Next.js 14", "NestJS", "GraphQL", "Prisma", "Stripe", "Mantine"],
+    category: "Full Stack",
+    github: "https://github.com/Alley-eddine/e-com",
+    image: "/screenshots/e-com-noir.png",
+    accent: "hsl(260 80% 55%)",
   },
   {
     id: 5,
     titleKey: "5",
-    tech: ["Node.js", "Express", "MongoDB", "Redis", "Docker", "GitHub Actions"],
-    category: "Backend",
-    github: "#",
-    image: "/projects/social-api.jpg",
-    accent: "hsl(168 80% 58%)",
+    tech: ["Next.js 16", "TypeScript", "Tailwind", "AWS S3", "Brevo"],
+    category: "Frontend",
+    github: "https://github.com/Alley-eddine/colorpaint",
+    live: "https://colorpaint-two.vercel.app",
+    image: "/screenshots/colors-paint.png",
+    mobileImage: "/screenshots/colors-paint-mobile.png",
+    accent: "hsl(200 80% 55%)",
   },
   {
     id: 6,
     titleKey: "6",
-    tech: ["Next.js", "Astro", "Keystatic", "Supabase", "Vercel"],
-    category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/portfolio-gen.jpg",
-    accent: "hsl(280 80% 55%)",
+    tech: ["Next.js 16", "TypeScript", "Tailwind v4", "shadcn/ui", "Zod"],
+    category: "Frontend",
+    github: "https://github.com/Alley-eddine/ouvertures-pro",
+    live: "https://ouvertures-pro.vercel.app",
+    image: "/screenshots/ouvertures-pro.png",
+    mobileImage: "/screenshots/ouvertures-pro-mobile.png",
+    accent: "hsl(168 80% 58%)",
   },
   {
     id: 7,
     titleKey: "7",
-    tech: ["React", "Node.js", "Express", "Socket.IO", "MongoDB"],
+    tech: ["React", "Vite", "Payload CMS", "PostgreSQL", "Docker"],
     category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/chat-app.jpg",
-    accent: "hsl(200 80% 55%)",
+    github: "https://github.com/Alley-eddine/dawn-martins",
+    live: "https://dawn-martins.vercel.app",
+    image: "/screenshots/dawn-martins.png",
+    mobileImage: "/screenshots/dawn-martins-mobile.png",
+    accent: "hsl(350 80% 55%)",
   },
   {
     id: 8,
     titleKey: "8",
-    tech: ["Vue.js", "Laravel", "MySQL", "Stripe", "Vercel"],
+    tech: ["Next.js 16", "Supabase", "TanStack Query", "RBAC", "Realtime"],
     category: "Full Stack",
-    github: "#",
-    live: "#",
-    image: "/projects/event-booking.jpg",
-    accent: "hsl(350 80% 55%)",
+    github: "https://github.com/Alley-eddine/secure-ops",
+    image: "/screenshots/secure-ops.png",
+    accent: "hsl(150 80% 45%)",
   },
 ]
 
@@ -121,17 +128,16 @@ function ProjectCard({
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className="group relative w-full overflow-hidden rounded-xl border border-border bg-card text-left shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none transition-all duration-500 hover:border-primary/30 hover:shadow-[0_4px_24px_hsl(var(--primary)/0.1)]"
     >
-      {/* Image preview */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={project.image}
-          alt={t("previewAlt", { title })}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-        <div className="absolute right-3 top-3">
+      {/* Safari mockup preview */}
+      <div className="relative w-full overflow-hidden px-4 pt-4 pb-0">
+        <div className="transition-transform duration-700 group-hover:scale-[1.02]">
+          <Safari
+            url={project.live || project.github || ""}
+            imageSrc={project.image}
+            mode="simple"
+          />
+        </div>
+        <div className="absolute right-5 top-5">
           <span className="rounded-md bg-card/80 px-2.5 py-1 font-mono text-xs text-muted-foreground backdrop-blur-sm">
             {project.category}
           </span>
@@ -193,21 +199,29 @@ function ProjectModal({
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
+        className="relative z-10 w-full max-w-2xl rounded-2xl border border-border bg-card shadow-2xl overflow-x-clip"
       >
-        {/* Image */}
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
-          <Image
-            src={project.image}
-            alt={t("previewAlt", { title })}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 700px"
+        {/* Device mockups */}
+        <div className="relative w-full px-4 pt-4 pb-2">
+          <Safari
+            url={project.live || project.github || ""}
+            imageSrc={project.image}
+            mode="default"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+          {/* iPhone superposed bottom-right */}
+          {project.mobileImage && (
+            <motion.div
+              initial={{ opacity: 0, y: 30, x: 10 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute -bottom-3 right-8 w-[16%] drop-shadow-2xl sm:right-10 z-20"
+            >
+              <Iphone src={project.mobileImage} />
+            </motion.div>
+          )}
           <button
             onClick={onClose}
-            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-card/80 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-card hover:text-foreground"
+            className="absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-full bg-card/80 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-card hover:text-foreground z-20"
             aria-label={t("close")}
           >
             <X size={18} />
@@ -277,7 +291,7 @@ export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState(t("all"))
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
-  const categories = [t("all"), "Full Stack", "Frontend", "Backend"]
+  const categories = [t("all"), "Full Stack", "Frontend"]
 
   const filteredProjects =
     activeCategory === t("all")

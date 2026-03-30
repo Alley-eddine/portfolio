@@ -31,44 +31,44 @@
     "previewAlt": "Preview of {title}",
     "items": {
       "1": {
-        "title": "E-Commerce Platform",
-        "description": "Complete e-commerce platform with shopping cart, Stripe payments and admin dashboard.",
-        "longDescription": "Full-stack e-commerce application with authentication, catalog management, dynamic shopping cart, Stripe payment integration, and a comprehensive admin dashboard. Deployed on Vercel with Supabase for the database and Redis for caching."
+        "title": "Boucherie Chayma",
+        "description": "Premium halal meat e-commerce with Chronofresh cold-chain delivery.",
+        "longDescription": "Full-featured e-commerce platform for a premium halal butcher shop: product catalog with filters, cart by weight with per-kilo pricing, Stripe payments, simulated Chronofresh delivery, customer area with order tracking and saved addresses, admin dashboard with analytics, product/order management and promo codes. Internationalized in FR/ES/EN."
       },
       "2": {
-        "title": "Task Management App",
-        "description": "Real-time project management application with Kanban boards.",
-        "longDescription": "Collaborative task management tool inspired by Trello with drag-and-drop, real-time notifications via WebSockets, member assignment, advanced filters and multi-user sync. Express backend with MongoDB."
+        "title": "Bensow Auto",
+        "description": "Car dealership website with dynamic catalog and admin dashboard.",
+        "longDescription": "Showcase website and vehicle catalog for a car dealership. Dynamic catalog powered by Supabase with filters (brand, fuel, gearbox), detailed vehicle pages with photo gallery. Consignment and custom order forms with client-side image compression before upload. Full admin dashboard: vehicle CRUD, request management, PDF export, Google OAuth authentication, activity logs."
       },
       "3": {
-        "title": "Blog CMS Headless",
-        "description": "Complete headless CMS with Payload CMS, Astro frontend and Cloudflare deployment.",
-        "longDescription": "Headless content management system using Payload CMS for the back-office with an ultra-fast Astro frontend. Automated deployment on Cloudflare Pages with CI/CD pipeline via GitHub Actions. Keystatic integration for inline editing."
+        "title": "Maison Claire Conciergerie",
+        "description": "Luxury concierge service with VTC booking and online payment.",
+        "longDescription": "Premium showcase website for a luxury chauffeur, concierge and close protection service. 5-step booking wizard with vehicle selection, dynamic pricing engine (night/weekend/holiday surcharges), Stripe payment. Laravel backend API for admin management (bookings, vehicles, invoices). Automatic day/night theme based on geolocation (SunCalc). Bilingual FR/EN."
       },
       "4": {
-        "title": "Dashboard Analytics",
-        "description": "Interactive dashboard with real-time data visualizations.",
-        "longDescription": "Analytical dashboard with interactive charts, dynamic filters, report exports, smart notifications, and integration with multiple data sources. Built with Next.js, Supabase for real-time and Redis for caching."
+        "title": "NOIR E-Commerce",
+        "description": "Dark luxury e-commerce platform with GraphQL API (work in progress).",
+        "longDescription": "Full-stack e-commerce with a dark luxury minimalist design. Product catalog, shopping cart, review system, JWT + Google OAuth authentication. Code-first GraphQL API with NestJS, Prisma and PostgreSQL. Admin dashboard with KPIs, product/category/order management. Stripe payment integration. Project under active development."
       },
       "5": {
-        "title": "API Microservices",
-        "description": "Microservices architecture for social platform with real-time messaging.",
-        "longDescription": "Microservices architecture for a social platform with algorithmic feed management, real-time messaging, follower system, push notifications and content moderation. Orchestrated with Docker and deployed via CI/CD GitHub Actions."
+        "title": "Colors Paint",
+        "description": "Auto body shop website with quote form and photo uploads.",
+        "longDescription": "Professional website for an auto body repair shop in Les Ulis, France. Animated landing page with parallax, services grid, animated counters and Google Maps. Multi-step quote form with photo uploads to Cloudflare R2 (presigned URLs), transactional emails via Brevo (garage notification + client confirmation). Full SEO with JSON-LD, sitemap and Open Graph."
       },
       "6": {
-        "title": "Portfolio Generator",
-        "description": "Dynamic portfolio generator with headless CMS and automated deployment.",
-        "longDescription": "SaaS application for creating custom portfolios with a visual editor, customizable themes, automatic SEO via Astro, content management with Keystatic and automatic deployment to Vercel or Cloudflare."
+        "title": "Ouvertures Pro",
+        "description": "Window installation company website with scroll animations and quote form.",
+        "longDescription": "Marketing website for a joinery company in Ile-de-France. Full-screen hero with parallax, 6-service grid with scroll-triggered animations, testimonials, team section and animated counters (IntersectionObserver). Multi-step quote form with personal info, address, project type and desired services. Google Maps integration and floating WhatsApp button."
       },
       "7": {
-        "title": "Real-time Chat App",
-        "description": "Real-time chat application with WebSockets and push notifications.",
-        "longDescription": "Real-time chat application with instant messaging system, push notifications, connected user management, and modern user interface. Built with React, Node.js, Express and Socket.IO."
+        "title": "Dawn Martins",
+        "description": "Fashion designer portfolio with Payload headless CMS.",
+        "longDescription": "Portfolio website for a young Parisian fashion designer studying at Lisaa Mode Paris. Photo galleries with lightbox and justified grid, fashion collections (Meteore, Reminescence, Placidite, Contraste), biography and press pages. Payload CMS v3 headless backend with PostgreSQL for content management, responsive media and CV download. Frontend deployed on Netlify, Dockerized CMS."
       },
       "8": {
-        "title": "Event Booking System",
-        "description": "Event booking system with interactive calendar and online payment.",
-        "longDescription": "Event booking system with interactive calendar, seat management, Stripe payment integration, and admin dashboard for event management. Built with Vue.js for the frontend and Laravel for the backend."
+        "title": "Secure Ops",
+        "description": "Tactical command center for security companies with RBAC.",
+        "longDescription": "Multi-role dashboard (manager, agent, client) for security operations management. Complete RBAC system with Next.js middleware and Supabase Auth, multi-tenant database schema (tenants, sites, posts, shifts, incidents, logs). Realtime providers for flash alerts and typed notifications. Jest unit tests. Project under active development."
       }
     }
   },

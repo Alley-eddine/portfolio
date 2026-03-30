@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
+import { TextAnimate } from "@/components/ui/text-animate"
 
 const titles = [
   "React & Next.js",
@@ -82,19 +83,44 @@ export function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          <span className="text-sm text-primary">{t("available")}</span>
+          <TextAnimate
+            as="span"
+            by="character"
+            animation="blurIn"
+            delay={0.2}
+            duration={0.5}
+            startOnView={false}
+            className="text-sm text-primary"
+          >
+            {t("available")}
+          </TextAnimate>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          <span className="text-foreground">{t("developer")}</span>
+        <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          <TextAnimate
+            as="span"
+            by="word"
+            animation="blurInUp"
+            delay={0.1}
+            duration={0.8}
+            startOnView={false}
+            className="text-foreground"
+          >
+            {t("developer")}
+          </TextAnimate>
           <br />
-          <span className="text-foreground">{t("fullStack")}</span>
-        </motion.h1>
+          <TextAnimate
+            as="span"
+            by="word"
+            animation="blurInUp"
+            delay={0.4}
+            duration={0.8}
+            startOnView={false}
+            className="text-foreground"
+          >
+            {t("fullStack")}
+          </TextAnimate>
+        </h1>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,14 +131,17 @@ export function HeroSection() {
           <TypingAnimation />
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        <TextAnimate
+          as="p"
+          by="word"
+          animation="fadeIn"
+          delay={0.6}
+          duration={1}
+          startOnView={false}
           className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
           {t("description")}
-        </motion.p>
+        </TextAnimate>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, FolderOpen, Zap, Mail, Sun, Moon, Languages } from "lucide-react"
+import { Home, FolderOpen, Zap, Mail, Languages } from "lucide-react"
 import { useTheme } from "next-themes"
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "@/i18n/navigation"
 
@@ -22,10 +23,7 @@ export function Navbar() {
 
   const [activeSection, setActiveSection] = useState("#accueil")
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => setMounted(true), [])
+  const { setTheme } = useTheme()
 
   /* Track active section on scroll */
   const updateActive = useCallback(() => {
@@ -47,7 +45,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", updateActive)
   }, [updateActive])
 
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
   const toggleLocale = () => {
     const next = locale === "fr" ? "en" : "fr"
     router.replace(pathname, { locale: next })
@@ -124,13 +121,11 @@ export function Navbar() {
           <div className="my-0.5 h-px w-5 bg-border/50" />
 
           {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+          <AnimatedThemeToggler
+            onThemeChange={setTheme}
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-all duration-300 hover:bg-muted/50 hover:text-foreground [&_svg]:size-[17px]"
             aria-label={t("changeTheme")}
-          >
-            {mounted && (theme === "dark" ? <Sun size={17} /> : <Moon size={17} />)}
-          </button>
+          />
 
           {/* Locale toggle */}
           <button
@@ -179,14 +174,14 @@ export function Navbar() {
             )
           })}
           {/* Mobile theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300"
-            aria-label={t("changeTheme")}
-          >
-            {mounted && (theme === "dark" ? <Sun size={20} /> : <Moon size={20} />)}
+          <div className="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-muted-foreground transition-all duration-300">
+            <AnimatedThemeToggler
+              onThemeChange={setTheme}
+              className="[&_svg]:size-5"
+              aria-label={t("changeTheme")}
+            />
             <span className="text-[10px] font-medium">{t("theme")}</span>
-          </button>
+          </div>
           {/* Mobile locale toggle */}
           <button
             onClick={toggleLocale}

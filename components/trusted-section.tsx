@@ -4,31 +4,27 @@ import { useTranslations } from "next-intl"
 import { AnimatedSection } from "./animated-section"
 
 const clients = [
-  { name: "TechVision", logo: "/logos/techvision.svg" },
-  { name: "NovaSoft", logo: "/logos/novasoft.svg" },
-  { name: "CloudPeak", logo: "/logos/cloudpeak.svg" },
-  { name: "DataForge", logo: "/logos/dataforge.svg" },
-  { name: "PixelCraft", logo: "/logos/pixelcraft.svg" },
-  { name: "AppNest", logo: "/logos/appnest.svg" },
-  { name: "CodeWave", logo: "/logos/codewave.svg" },
-  { name: "BrightLoop", logo: "/logos/brightloop.svg" },
-  { name: "SyncFlow", logo: "/logos/syncflow.svg" },
-  { name: "NetPulse", logo: "/logos/netpulse.svg" },
-  { name: "CyberEdge", logo: "/logos/cyberedge.svg" },
-  { name: "FluxMedia", logo: "/logos/fluxmedia.svg" },
+  { name: "Boucherie Chayma", logo: "/logos/boucherie-chayma.svg", invertDark: false },
+  { name: "Bensow Auto", logo: "/logos/bensow-auto.png", invertDark: false },
+  { name: "Maison Claire Conciergerie", logo: "/logos/mcc.png", invertDark: false },
+  { name: "Colors Paint", logo: "/logos/colors-paint.png", invertDark: false },
+  { name: "Ouvertures Pro", logo: "/logos/ouvertures-pro.png", invertDark: false },
+  { name: "Dawn Martins", logo: "/logos/dawn-martins.svg", invertDark: true },
 ]
 
 function MarqueeRow() {
   return (
-    <div className="flex shrink-0 items-center gap-16 sm:gap-20">
+    <div className="flex shrink-0 items-center gap-12 sm:gap-16">
       {clients.map((client) => (
-        <img
-          key={client.name}
-          src={client.logo}
-          alt={client.name}
-          className="h-8 w-auto opacity-30 grayscale transition-all duration-300 hover:opacity-60 hover:grayscale-0 sm:h-9"
-          draggable={false}
-        />
+        <div key={client.name} className="flex items-center gap-3 transition-all duration-300 opacity-40 grayscale hover:opacity-70 hover:grayscale-0">
+          <img
+            src={client.logo}
+            alt={client.name}
+            className={`h-8 max-w-[120px] w-auto object-contain sm:h-10 ${client.invertDark ? "dark:invert" : ""}`}
+            draggable={false}
+          />
+          <span className="whitespace-nowrap text-sm font-medium text-muted-foreground">{client.name}</span>
+        </div>
       ))}
     </div>
   )
@@ -53,7 +49,9 @@ export function TrustedSection() {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-background to-transparent" />
 
-        <div className="flex gap-16 animate-marquee sm:gap-20">
+        <div className="flex gap-12 animate-marquee sm:gap-16">
+          <MarqueeRow />
+          <MarqueeRow />
           <MarqueeRow />
           <MarqueeRow />
         </div>
