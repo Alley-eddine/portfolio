@@ -61,7 +61,7 @@ const projects: Project[] = [
     tech: ["Next.js 14", "NestJS", "GraphQL", "Prisma", "Stripe", "Mantine"],
     category: "Full Stack",
     github: "https://github.com/Alley-eddine/e-com",
-    image: "/screenshots/e-com-noir.png",
+    image: "/screenshots/work-in-progress.svg",
     accent: "hsl(260 80% 55%)",
   },
   {
@@ -103,7 +103,7 @@ const projects: Project[] = [
     tech: ["Next.js 16", "Supabase", "TanStack Query", "RBAC", "Realtime"],
     category: "Full Stack",
     github: "https://github.com/Alley-eddine/secure-ops",
-    image: "/screenshots/secure-ops.png",
+    image: "/screenshots/work-in-progress.svg",
     accent: "hsl(150 80% 45%)",
   },
 ]
